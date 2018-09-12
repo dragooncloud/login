@@ -6,9 +6,14 @@
       </h1>
       <h2 class="subtitle">
         OAuth2 Logon Portal for Office365, Facebook and Google integration
+        <ul>
+          <li>Cookie-less</li>
+          <li>No username</li>
+          <li>No password</li>
+        </ul>
       </h2>
       <div class="links" v-if="!profile">
-        <button @click="auth('windows')" class="button--green">Microsoft Graph</button>
+        <button @click="auth('windows')" class="button--green">Office 365</button>
         <button @click="auth('facebook')" class="button--grey">Facebook</button>
         <button @click="auth('google')" class="button--grey">Google</button>
       </div>
