@@ -22,6 +22,7 @@ module.exports = {
    */
   plugins: [
     { src: '~/plugins/hellojs-plugin', ssr: false },
+    '~/plugins/dragoon-account-api',
   ],
   /*
    * Build configuration
