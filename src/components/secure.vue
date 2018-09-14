@@ -4,8 +4,8 @@
     <!-- No Auth -->
     <div v-if="!isAuthenticated">
       <h2 class="subtitle">
-        Restricted Page
-        <small class="text-muted">Log-on using one of the options below</small>
+        Please log-on to continue
+        <small class="text-muted">the page you requested is restricted</small>
       </h2>
 
       <ul id="login-buttons" class="button-list">
