@@ -2153,6 +2153,12 @@ eslint-loader@^1.7.1:
     object-hash "^1.1.4"
     rimraf "^2.6.1"
 
+eslint-plugin-security@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-security/-/eslint-plugin-security-1.4.0.tgz#d4f314484a80b1b613b8c8886e84f52efe1526c2"
+  dependencies:
+    safe-regex "^1.1.0"
+
 eslint-plugin-vue@^4.0.0:
   version "4.7.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-4.7.1.tgz#c829b9fc62582c1897b5a0b94afd44ecca511e63"
