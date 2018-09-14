@@ -8,13 +8,25 @@
     </div>
     <div v-if="isAdmin">
       <h2>Current admins</h2>
-      <ul>
-        <li v-for="user in allRelatedUsers" :key="user">
-          {{ user }}
-          <span v-if="userIsAdmin(user)">ADMIN</span>&nbsp;
-          <span style="font-weight:bold" v-if="profile.id === user">YOU</span>
-        </li>
-      </ul>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Flags</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="user in allRelatedUsers" :key="user">
+            <td>
+              {{ user }}
+            </td>
+            <td>
+              <span class="btn btn-lg btn-outline-success" v-text="userIsAdmin(user) ? 'Administrator' : 'Subscription User'"/>
+              <span class="btn btn-lg btn-outline-default" v-text="profile.id === user ? 'YOU' : ''"/>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </secure>
 </template>

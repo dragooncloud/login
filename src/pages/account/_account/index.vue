@@ -4,16 +4,30 @@
     <p>Edit details provided on new-account for an existing account</p>
 
     <h2>Subscriptions</h2>
-    <p v-if="isAdmin">You have {{ subscriptionsRemaining }} subscriptions remaining ({{ numberOfAllocatedSubscriptions }} already offered or allocated).<br/>
-      <router-link :to="`${accountId}/allocate`">Allocate another&hellip;</router-link></p>
+    <p v-if="isAdmin">You have <span class="text-bold" v-text="subscriptionsRemaining"/> subscriptions remaining (<span class="text-bold" v-text="numberOfAllocatedSubscriptions"/> already offered or allocated).<br/>
+      <router-link class="btn btn-lg btn-primary" :to="`${accountId}/allocate`">Allocate another&hellip;</router-link></p>
     
     <div v-if="account">
       <h3>Already allocated</h3>
-      <ul>
-        <li v-for="subscription in accountSubscriptions" :key="subscription.id">
-          <router-link :to="`${accountId}/subscription/${subscription.id}`">{{ subscription.id }} offered to {{ subscription.emailInvitationSentTo }}</router-link>
-        </li>
-      </ul>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Subscription</th>
+            <th scope="col">Offered to</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="subscription in accountSubscriptions" :key="subscription.id">
+            <td>
+              <router-link :to="`${accountId}/subscription/${subscription.id}`">{{ subscription.alias || subscription.id }}</router-link>
+            </td>
+            <td v-text="subscription.emailInvitationSentTo"/>
+            <td v-text="subscription.usedBy === null ? 'Unclaimed' : 'Claimed'"/>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div v-if="isAdmin">

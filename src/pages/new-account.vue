@@ -2,15 +2,16 @@
   <secure>
     <h1>New Account</h1>
     <p>create new account (choose auth options)</p>
-    <div>
-      <input type="text" name="name" v-model="accountName" placeholder="Account/Company name"/>
-    </div>
-    <div>
-      <label for="subscriptionsNeeded"># of Subscriptions needed (£10 pcm per subscription)</label>
-      <input type="number" id="subscriptionsNeeded" v-model.number="subscriptionsNeeded"/>
-    </div>
-    <button @click="makeRequestWithPayPal()">Set-up payment with PayPal</button>
-    <router-link to="/">Cancel</router-link>
+    <form class="form">
+      <div><input class="form-control" type="text" name="name" v-model="accountName" placeholder="Account/Company name"/></div>
+      <div>
+        <label for="subscriptionsNeeded"># of Subscriptions needed (£10 pcm per subscription)</label>
+        <input class="form-control" type="number" id="subscriptionsNeeded" v-model.number="subscriptionsNeeded"/>
+      </div>
+      <div>&nbsp;</div>
+      <button class="btn btn-lg btn-primary" @click="makeRequestWithPayPal()">Set-up payment with PayPal</button> 
+      <router-link class="btn btn-lg btn-secondary" to="/">Cancel</router-link>
+    </form>
   </secure>
 </template>
 

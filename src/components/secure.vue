@@ -3,27 +3,37 @@
     
     <!-- No Auth -->
     <div v-if="!isAuthenticated">
-      <h2 class="subtitle">Dragoon Log-on System</h2>
-      <ul>
-        <li>Cookie-less</li>
-        <li>No username</li>
-        <li>No password</li>
+      <h2 class="subtitle">
+        Restricted Page
+        <small class="text-muted">Log-on using one of the options below</small>
+      </h2>
+
+      <ul id="login-buttons" class="button-list">
+        <li><button @click="auth('windows')" class="btn btn-outline-dark btn-lg">Office 365</button></li>
+        <li><button @click="auth('facebook')" class="btn btn-outline-dark btn-lg">Facebook</button></li>
+        <li><button @click="auth('google')" class="btn btn-outline-dark btn-lg">Google</button></li>
+        <li><button @click="fakeAuth()" class="btn btn-outline-danger btn-lg">Fake Auth</button></li>
       </ul>
-      <div>
-        <button @click="auth('windows')">Office 365</button>
-        <button @click="auth('facebook')">Facebook</button>
-        <button @click="auth('google')">Google</button>
-        <button @click="fakeAuth()">Fake Auth</button>
+
+      <p>The team at Dragoon have worked hard to avoid needing to create yet another log-on system.
+        Instead, we use your existing accounts which you already own. Using a very clever
+        (and secure) mechanism called <a href="#">OAuth2</a>, we communicate with your existing
+        supplier to ensure none of you data is exposed and your account remains secure.</p>
+      
+      <h3>Wait&hellip; where's the user-name &amp; password fields?</h3>
+      <div class="alert alert-success" role="alert">
+        Does not use browser cookies
+      </div>
+      <div class="alert alert-success" role="alert">
+        Single-sign-on - don't need to remember yet another user-name and password
+      </div>
+      <div class="alert alert-success" role="alert">
+        Manage your account using tools you're already familiar with
       </div>
     </div>
 
     <!-- Authenticated (allow children) -->
     <div v-if="isAuthenticated">
-      <p>
-        <img :src="profile.thumbnail" alt="profile photo" style="max-height:64px;display:inline;margin-right:10px;"/>
-        You are logged-in as {{ profile.first_name }} {{ profile.last_name }} [
-        <button @click="logout()">logout</button>
-        ]</p>
       <slot></slot>
     </div>
   </div>
@@ -79,3 +89,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+#login-buttons {
+  margin: 60px;
+  text-align: center;
+}
+</style>

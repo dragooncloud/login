@@ -13,8 +13,11 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "bootstrap-scss": "^4.1.3",
     "hellojs": "^1.17.1",
+    "node-sass": "^4.9.3",
     "nuxt": "^1.0.0",
+    "sass-loader": "^7.1.0",
     "vue-hellojs": "^0.0.4"
   },
   "devDependencies": {

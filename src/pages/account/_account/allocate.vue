@@ -2,8 +2,11 @@
   <secure>
     <h1>New Subscription</h1>
     <p>Allocate one of your subscriptions</p>
-    <input type="text" v-model="emailTo" placeholder="Employee's email address"/>
-    <button @click="allocate()">Offer subscription to recipient&hellip;</button>
+    <form class="form">
+      <input class="form-control" type="text" v-model="emailTo" placeholder="Employee's email address"/>
+    </form>
+    <div>&nbsp;</div>
+    <button class="btn btn-lg btn-outline-primary" @click="allocate()">Offer subscription to recipient&hellip;</button>
   </secure>
 </template>
 

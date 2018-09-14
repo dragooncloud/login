@@ -1,7 +1,7 @@
 <template>
   <secure>
     <div v-if="account">
-      <h1>Cancel: {{ account.id }}</h1>
+      <h1>Cancel: {{ account.name }}</h1>
       <p>Confirmation screen before cancelling, feedback etc.</p>
 
       <div class="warn" v-if="offeredOrUsedSubscriptionsCount > 0">
